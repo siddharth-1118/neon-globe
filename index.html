@@ -2,8 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Neon Globe — Reactive Presentation (Keyboard + Notes + Script)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>🌍 Interactive World Cities - Neon Globe Visualization 🌎</title>  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     :root{
       --bg:#00000b; --panel:rgba(3,12,20,0.78); --muted:#bfe9ff; --accent:#66f0ff;
@@ -87,8 +86,7 @@
         <div>
           <button id="fullscreenBtn" class="btn" title="Fullscreen">⤢</button>
           <button id="notesToggle" class="btn" title="Toggle speaker notes">📝 Notes</button>
-        </div>
-      </div>
+            <strong style="color:var(--accent)">🌎 Interactive World Cities Globe 🌟</strong>      </div>
 
       <div class="row"><label>Bloom</label><input id="bloomToggle" type="checkbox" checked></div>
       <div class="row"><label>Stars</label><input id="starsToggle" type="checkbox" checked></div>
@@ -304,12 +302,26 @@ const iconGroup = new THREE.Group(); scene.add(iconGroup);
 const interactive = [];
 
 const placedNodes = [
-  { name: 'Solar Innovation', lat: 28.6, lon: 77.2, tex: icons.solar, color: 0x1fe6ff, desc: 'Distributed solar microgrids & storage.' },
-  { name: 'Wind Tech', lat: 51.5, lon: -0.1, tex: icons.wind, color: 0x98fffb, desc: 'Offshore wind turbine arrays.' },
-  { name: 'Green City', lat: 40.7, lon: -74.0, tex: icons.building, color: 0x9cffc9, desc: 'Urban green infrastructure.' },
-  { name: 'Recycle Hub', lat: 35.7, lon: 139.7, tex: icons.recycle, color: 0xa4ff8d, desc: 'Circular material networks.' },
-  { name: 'Ethical Forum', lat: -23.5, lon: -46.6, tex: icons.ethics, color: 0xa7b6ff, desc: 'Global ethics & policy exchange.' }
-];
+{ name: 'New York 🗽', lat: 40.7128, lon: -74.0060, text: icons.building, color: 0x1eff6f, desc: 'Tech innovation hub & financial center.' },
+    { name: 'London 🇬🇧', lat: 51.5074, lon: -0.1278, text: icons.wind, color: 0x66ffb2, desc: 'Green energy & smart city initiatives.' },
+    { name: 'Tokyo 🇯🇵', lat: 35.6762, lon: 139.6503, text: icons.solar, color: 0x1fe8ff, desc: 'Advanced robotics & clean technology.' },
+    { name: 'Paris 🇫🇷', lat: 48.8566, lon: 2.3522, text: icons.building, color: 0xff6fb2, desc: 'Sustainable urban development.' },
+    { name: 'Dubai 🇦🇪', lat: 25.2048, lon: 55.2708, text: icons.solar, color: 0xffd700, desc: 'Solar power & futuristic architecture.' },
+    { name: 'Singapore 🇸🇬', lat: 1.3521, lon: 103.8198, text: icons.recycle, color: 0x00ff88, desc: 'Zero-waste smart nation.' },
+    { name: 'Mumbai 🇮🇳', lat: 19.0760, lon: 72.8777, text: icons.building, color: 0xff9933, desc: 'Emerging tech startup ecosystem.' },
+    { name: 'São Paulo 🇧🇷', lat: -23.5505, lon: -46.6333, text: icons.ethics, color: 0x66ff66, desc: 'Renewable energy & sustainability.' },
+    { name: 'Sydney 🇦🇺', lat: -33.8688, lon: 151.2093, text: icons.wind, color: 0x00ccff, desc: 'Coastal wind farms & clean energy.' },
+    { name: 'Berlin 🇩🇪', lat: 52.5200, lon: 13.4050, text: icons.recycle, color: 0xffcc00, desc: 'Circular economy pioneer.' },
+    { name: 'Toronto 🇨🇦', lat: 43.6532, lon: -79.3832, text: icons.building, color: 0xff6666, desc: 'Green building standards leader.' },
+    { name: 'Seoul 🇰🇷', lat: 37.5665, lon: 126.9780, text: icons.solar, color: 0xff00ff, desc: 'Smart city & 5G technology.' },
+    { name: 'Moscow 🇷🇺', lat: 55.7558, lon: 37.6173, text: icons.wind, color: 0xccccff, desc: 'Energy transition initiatives.' },
+    { name: 'Mexico City 🇲🇽', lat: 19.4326, lon: -99.1332, text: icons.recycle, color: 0x00ff00, desc: 'Urban recycling programs.' },
+    { name: 'Cape Town 🇿🇦', lat: -33.9249, lon: 18.4241, text: icons.wind, color: 0x66d9ff, desc: 'Wind energy & ocean conservation.' },
+    { name: 'Bangkok 🇹🇭', lat: 13.7563, lon: 100.5018, text: icons.building, color: 0xffaa00, desc: 'Smart transportation systems.' },
+    { name: 'Istanbul 🇹🇷', lat: 41.0082, lon: 28.9784, text: icons.solar, color: 0xff3366, desc: 'Bridge between Europe & Asia tech.' },
+    { name: 'Los Angeles 🇺🇸', lat: 34.0522, lon: -118.2437, text: icons.solar, color: 0xffdd44, desc: 'Solar power capital of America.' },
+    { name: 'Shanghai 🇨🇳', lat: 31.2304, lon: 121.4737, text: icons.building, color: 0xff0066, desc: 'Mega city innovation center.' },
+    { name: 'Amsterdam 🇳🇱', lat: 52.3676, lon: 4.9041, text: icons.recycle, color: 0x66ff99, desc: 'Bicycle culture & green living.' }
 
 function latLonToVector3(lat, lon, offset=0){
   const phi = (90 - lat) * (Math.PI / 180);
